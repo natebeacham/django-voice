@@ -1,4 +1,8 @@
-from django.conf.urls import include, patterns, url
+try:
+	from django.conf.urls import include, patterns, url
+except ImportError:
+	from django.conf.urls.defaults import include, patterns, url
+
 from django.contrib.auth.views import login
 from djangovoice.models import Feedback
 from djangovoice.views import (
