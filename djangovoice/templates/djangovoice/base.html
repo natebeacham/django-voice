@@ -17,7 +17,7 @@
 
     {% block styles %}
       {# if you want to use your custom style, use `styles` block to reset default theme. #}
-      <link rel="stylesheet" href="{{ STATIC_URL }}djangovoice/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="{{ STATIC_URL }}djangovoice/css/normalize.css" />
       <link rel="stylesheet" href="{{ STATIC_URL }}djangovoice/css/style.css" />
     {% endblock %}
 
@@ -68,11 +68,7 @@
 
       <div class="navbar navbar-static-top">
         <div class="navbar-inner">
-          <div class="container-fluid">
-            <a class="brand" href="{% url brand_view %}">
-              {{ site.name }} {% trans "Feedback" %}
-            </a>
-          </div>
+          
           {% block navbottom %}
             {% include "djangovoice/includes/navbottom.html" %}
           {% endblock %}
@@ -81,7 +77,7 @@
     </header>
 
     <div class="container-fluid">
-      <div class="row-fluid">
+      <div class="row-fluid clearfix">
         <div class="span8">
           <div id="feedback">
             {% for message in messages %}
@@ -104,7 +100,7 @@
 
                   <span class="current">
                     {% blocktrans with number=page_obj.number pages=paginator.num_pages %}
-                      Page {{ number }} of {{ pages }}.
+                      Page {{ number }} of {{ pages }}
                     {% endblocktrans %}
                   </span>
 

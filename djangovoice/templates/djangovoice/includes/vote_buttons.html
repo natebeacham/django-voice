@@ -5,7 +5,7 @@
     <a href="#"
        class="upVote btn btn-mini{% if object|is_up_voted_by:user %} voted{% endif %}"
        x:value="1">
-      <i class="icon-chevron-up"></i>
+      <i class="icon-chevron-up">Yes!</i>
     </a>
 
     <span class="btn disabled score">{{ object.vote_score|default:'0' }}</span>
@@ -13,7 +13,7 @@
     <a href="#"
        class="downVote btn btn-mini{% if object|is_down_voted_by:user %} voted{% endif %}"
        x:value="-1">
-      <i class="icon-chevron-down"></i>
+      <i class="icon-chevron-down">No!</i>
     </a>
   </div>
 </div>

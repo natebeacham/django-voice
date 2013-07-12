@@ -3,9 +3,8 @@ try:
 except ImportError:
 	from django.conf.urls.defaults import include, patterns, url
 
-from django.contrib.auth.views import login
 from djangovoice.models import Feedback
-from djangovoice.views import (
+from djangovoice.views import (login,
     FeedbackListView, FeedbackWidgetView, FeedbackSubmitView,
     FeedbackDetailView, FeedbackEditView, FeedbackDeleteView)
 from djangovoice.feeds import LatestFeedback

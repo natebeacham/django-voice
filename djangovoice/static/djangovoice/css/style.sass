@@ -1,0 +1,498 @@
+html, body
+	padding: 0
+	margin: 0
+	font-family: segoe ui, freesans, sans-serif
+
+body
+	background-color: #eee
+	padding-top: 23px
+
+.clearfix:after 
+	content: "."
+	display: block
+	clear: both
+	visibility: hidden
+	line-height: 0
+	height: 0
+ 
+html .clearfix
+	display: block
+ 
+* html .clearfix
+	height: 1%
+
+header
+	.navtop
+		height: 20px
+		background-color: #222
+		font-size: .8em
+
+		&.navbar-static-top
+			height: 23px
+			line-height: 21px
+			position: fixed
+			top: 0
+			left: 0
+			right: 0
+
+		a
+			color: #eee
+			text-decoration: none
+
+			&:hover
+				color: #fff
+				text-decoration: underline
+		ul
+			li
+				padding-right: 20px
+				float: left
+				list-style-type: none
+
+			&.pull-right li
+				padding: 0 0 0 20px
+				span
+					padding-right: 10px
+					color: #eee
+					font-weight: 400
+					a
+						text-decoration: none
+	.navbottom
+		position: absolute
+		top: 39px
+		list-style-type: none
+		margin: 0
+		padding: 0
+		left: 8%
+
+		li
+			display: inline
+			a
+				display: inline-block
+				text-decoration: none
+				background-color: #ddd
+				color: #666
+				font-size: 12px
+				font-weight: 700
+				line-height: 25px
+				padding: 5px 20px
+				border-top: 1px solid #ddd
+
+			&.active a
+				background-color: #fff
+				color: #111
+				border-top: 1px solid #e34a32
+
+	.nav
+		float: left
+		margin: 0
+		padding: 0
+
+		&.pull-right
+			float: right
+
+	.navbar
+		margin-bottom: 20px
+		.nav > li > a, a.brand
+			padding-left: 0
+			color: #000
+			text-shadow: #222 0 0 1px
+			text-decoration: none
+
+	.navbar-inner
+		height: 32px
+
+		.brand
+			font-size: 28px
+
+.pull-right
+	float: right
+
+.pull-left
+	float: left
+
+h1.page-title
+	font-size: 1.5em
+	color: #333
+	margin: 10px
+
+h3.feedback-title
+	color: #333
+	margin: 0
+	font-size: 22px
+	line-height: 36px
+
+#actions
+	padding-top: 20px
+	ul
+		list-style: none
+		margin: 0
+		padding: 0 25px 0 0
+		li
+			float: left
+			margin: 0 2px 0 0
+			padding: 8px 0
+			a
+				color: #fff
+				text-shadow: 1px 1px 0 #6e797d
+				text-decoration: none
+				font-weight: 700
+				background-color: #959ea2
+				padding: 10px 25px
+				&:hover
+					text-shadow: 1px 1px 0 #51595c
+					background-color: #6d787c
+
+.span8
+	float: left
+	width: 80%
+
+.span4
+	float: right
+	width: 15%
+
+
+#sidebar
+	h4
+		font-weight: 700
+	ul
+		list-style: none
+		margin-bottom: 20px
+		padding: 0
+		li
+			padding: 2px 15px
+			&:hover
+				background-color: #fff
+				border-radius: 11px
+				-moz-border-radius: 11px
+				-webkit-border-radius: 11px
+			&.active
+				margin-bottom: 2px
+				background-color: #e7e9ea
+				color: #3f4547
+				border-radius: 11px
+				-moz-border-radius: 11px
+				-webkit-border-radius: 11px
+				a
+					color: #3f4547
+					text-shadow: 0 1px 0 #fff
+			a
+				display: block
+				text-decoration: none
+				color: #798488
+
+#submit form
+	margin-right: 20px
+	padding-top: 10px
+
+	.control-group 
+		padding: 10px
+
+		label
+			text-align: right
+			width: 140px
+			font-weight: bold
+			display: block
+			float: left
+			padding: 0 10px
+			line-height: 34px
+			font-size: 14px
+
+	input[type="text"], textarea
+		border: 1px solid #ccc
+		padding: 7px
+		width: 400px
+
+		&:focus
+			outline: none
+			border: 1px solid #888
+
+	select
+		border: 1px solid #ccc
+		padding: 7px
+		width: 416px
+
+	input[type="checkbox"]
+		margin: 10px
+
+
+#feedback
+	background-color: #fff
+	box-shadow: 2px 2px 15px rgba(0,0,0,0.2)
+
+	.add-new
+		background-color: #0b486b
+		color: #fff
+		font-weight: 700
+		font-size: 12px
+		text-decoration: none
+		padding: 3px 10px
+	h2
+		margin: 0
+
+	ul.feedback-list
+		padding: 20px
+
+		.details
+			padding: 10px 30px
+
+		li
+			border-top: 1px solid #ddd
+			min-height: 135px
+
+			&.feedback-private
+				background-color: #ebfeef
+			&.feedback-type-problem
+				background: rgb(255, 250, 250)
+			&.feedback-type-general
+				
+			&.feedback-type-idea
+				
+			&.feedback-type-wontdo
+				
+			&.feedback-type-question
+				
+			h3
+				font-size: 18px
+				margin: 0
+
+				a
+					text-decoration: none
+			a
+				color: #0b486b
+
+footer
+	margin: 5px 0 20px
+	a
+		color: #989898
+		text-shadow: 0 1px 0 #fff
+		font-size: .8em
+
+.container-fluid
+	width: 90%
+	margin: 0 auto
+
+span
+	&.feedback-status, &.feedback-type
+		font-size: .8em
+		text-transform: uppercase
+		padding: 2px 8px
+	&.feedback-status
+		background-color: #d2f4f6
+		color: #326c6f
+	&.feedback-status-accepted
+		background-color: #d8f4ff
+		color: #3a95c4
+	&.feedback-status-done
+		background-color: #e4ffbc
+		color: #499e00
+	&.feedback-status-new
+		background-color: #ffd8d8
+		color: #ff4e4e
+	&.feedback-type
+		background-color: #219da4
+		color: #fff
+	&.feedback-type-problem
+		background-color: #ff4e4e
+	&.feedback-type-general
+		background-color: #499e00
+	&.feedback-type-idea
+		background-color: #3a95c4
+	&.feedback-type-wontdo
+		background-color: #a760ff
+	&.feedback-type-question
+		background-color: #009e8e
+
+.feedback-comments
+	font-size: 11px
+	h4.feedback-title
+		margin-bottom: 0
+		border-bottom: 1px solid #d9d9d9
+	textarea
+		font-size: 1.1em
+		width: 100%
+		height: 100px
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+.feedback-user, .feedback-date
+	font-size: 11px
+	color: #727c82
+
+#feedback-detail-heading
+	margin: 0
+	padding: 10px 0 0
+	.feedback-type
+		margin-right: 10px
+		vertical-align: middle
+
+.message.staff
+	background-color: #f0faff
+	.staff
+		float: left
+		clear: left
+		padding-left: 15px
+		color: #747474
+		font-size: 11px
+		width: 46px
+		text-align: center
+
+.meta
+	padding: 0
+	margin: 2px 0
+
+#feedback-duplicate
+	font-size: .9em
+	border-bottom: 1px solid #cff09e
+	background-color: #f4ffe9
+	margin: 0 0 10px
+	padding: 10px 15px
+
+.pagination
+	font-size: .8em
+	color: #fff
+	background-color: #333
+	margin: 0
+	padding: 7px 10px
+	text-align: right
+	span, a
+		margin: 0
+		padding: 0
+		color: #fff
+
+
+#id_honeypot
+	display: none
+
+#signin
+	text-align: center
+	padding: 50px 20px
+	font-size: 22px
+
+	label
+		width: 200px
+		font-weight: bold
+		text-align: left
+		margin: 0 10px
+		display: inline-block
+		font-size: 18px
+
+	input[type="text"], input[type="password"]
+		width: 300px
+		border: 1px solid #ccc
+		padding: 10px
+
+	input[type="submit"]
+		font-size: 20px
+		padding: 17px 245px
+		margin: 10px 0
+
+	ul
+		li
+			padding: 10px
+	
+
+.form-errors
+	color: red
+	font-size: 11px
+	line-height: 10px
+	padding: 4px 0 2px
+	ul
+		list-style: none
+		padding: 0
+	li
+		color: red
+		font-size: 11px
+		line-height: 10px
+
+.form-cancel
+	margin-left: 15px
+
+div
+	&.message
+		.avatar
+			float: left
+			vertical-align: text-bottom
+			line-height: 0
+			margin: 0 10px
+			padding: 10px 4px 4px
+		.content .details
+			font-size: 11px
+			font-weight: 400
+			color: #888
+			vertical-align: top
+			line-height: 11px
+			text-align: left
+			padding: 0 0 5px
+		border-color: #d9d9d9
+		border-style: solid
+		border-width: 0 0 1px
+		padding: 5px 0 0
+	&.message-content
+		min-height: 60px
+		padding: 10px 10px 10px 60px
+	&.content img
+		border: 1px solid #bbb
+		padding: 2px
+
+.reset-ul, #feedback ul
+	list-style-type: none
+	margin: 0
+	padding: 0
+
+.content-spaces, .vote_buttons
+	padding: 10px
+	font-size: 14px
+
+#submit form button, .comment-form
+	margin-top: 20px
+
+.btn
+	cursor: pointer
+	display: inline-block
+	*display: inline
+	*zoom: 1
+	text-decoration: none
+	font: bold 12px/12px HelveticaNeue, Arial
+	background: #f5f5f5
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#f0f0f0')
+	background: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#f0f0f0))
+	background: -moz-linear-gradient(top,  #f9f9f9, #f0f0f0)
+	border: 1px solid #dedede
+	border-color: #dedede #d8d8d8 #d3d3d3
+	color: #555
+	text-shadow: 0 1px 0 #fff
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.1)
+	padding: 8px 11px
+	border-radius: 1px
+
+	i
+		font-style: normal
+		color: #555
+
+	&.score
+		margin: 5px 0
+		border: 1px solid #eee
+		background: #fff
+		font-size: 22px
+		padding: 11px
+
+.btn-group 
+	display: block
+	float: left
+	text-align: center
+	width: 120px
+
+	&.btn-group-vertical
+		.btn
+			width: 70%
+
+			&.voted
+				background: rgb(213, 255, 215)
+				border-color: rgb(126, 255, 94)
+
+.errorlist
+	li
+		color: rgb(221, 122, 122)
+		font-size: 16px
+		font-weight: bold

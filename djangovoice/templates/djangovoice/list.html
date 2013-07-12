@@ -47,11 +47,11 @@
               <span class="feedback-user">
                 {% if object.user %}
                   {% trans "Submitted by:" %}
-                  <a href="{{ object.user.get_absolute_url }}" class="avatar" title="{% trans "View profile" %}">
+                  <a class="avatar" title="{% trans "View profile" %}">
                     {% get_user_image object.user 15 %}
                   </a>
 
-                  <a href="{{ object.user.get_absolute_url }}" title="View profile">
+                  <a>
                     {{ object.user|display_name }}
                   </a>
                 {% else %}
