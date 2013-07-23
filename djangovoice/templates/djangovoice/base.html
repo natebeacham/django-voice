@@ -36,11 +36,13 @@
                   {% trans "hello" %}, <a href="#">{{ user.username }}</a>
                 </span>
               </li>
+              {% if user.is_authenticated %}
               <li>
                 <a href="{% url 'djangovoice_submit' %}">
                   {% trans "submit feedback" %}
                 </a>
               </li>
+              {% endif %}
               <li>
                 <a href="{% url 'django.contrib.auth.views.logout' %}?next={% url 'djangovoice_home' %}">
                   {% trans "sign out" %}

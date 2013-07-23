@@ -5,7 +5,9 @@
   <li{% if active_tab == 'overview' %} class="active"{% endif %}>
     <a href="{% url 'djangovoice_home' %}">{% trans "Overview" %}</a>
   </li>
+  {% if user.is_authenticated %}
   <li{% if active_tab == 'new_feedback' %} class="active"{% endif %}>
     <a href="{% url 'djangovoice_submit' %}">{% trans "New Feedback" %}</a>
   </li>
+  {% endif %}
 </ul>
