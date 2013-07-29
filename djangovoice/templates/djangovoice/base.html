@@ -17,7 +17,7 @@
 
     {% block styles %}
       {# if you want to use your custom style, use `styles` block to reset default theme. #}
-      <link rel="stylesheet" href="{{ STATIC_URL }}djangovoice/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="{{ STATIC_URL }}djangovoice/css/normalize.css" />
       <link rel="stylesheet" href="{{ STATIC_URL }}djangovoice/css/style.css" />
     {% endblock %}
 
@@ -33,23 +33,25 @@
             {% if user.is_authenticated %}
               <li>
                 <span>
-                  {% trans "hello" %}, <a href="#">{{ user.username }}</a>
+                  {% trans "Hello" %}, <a href="#">{{ user.first_name }}</a>
                 </span>
               </li>
+              {% if user.is_authenticated %}
               <li>
                 <a href="{% url 'djangovoice_submit' %}">
-                  {% trans "submit feedback" %}
+                  {% trans "New Request" %}
                 </a>
               </li>
+              {% endif %}
               <li>
                 <a href="{% url 'django.contrib.auth.views.logout' %}?next={% url 'djangovoice_home' %}">
-                  {% trans "sign out" %}
+                  {% trans "Sign Out" %}
                 </a>
               </li>
             {% else %}
               <li>
                 <a href="{% url 'djangovoice_signin' %}?next={% url 'djangovoice_home' %}">
-                  {% trans "sign in" %}
+                  {% trans "Sign In" %}
                 </a>
               </li>
             {% endif %}
@@ -57,10 +59,10 @@
 
           <ul class="nav">
             {% block navigation %}
-              <li><a href="{% url 'djangovoice_list' list='all' %}">{% trans "all" %}</a></li>
-              <li><a href="{% url 'djangovoice_list' list='open' %}">{% trans "open" %}</a></li>
-              <li><a href="{% url 'djangovoice_list' list='closed' %}">{% trans "closed" %}</a></li>
-              <li><a href="{% url 'djangovoice_list' list='mine' %}">{% trans "mine" %}</a></li>
+              <li><a href="{% url 'djangovoice_list' list='all' %}">{% trans "All" %}</a></li>
+              <li><a href="{% url 'djangovoice_list' list='open' %}">{% trans "Open" %}</a></li>
+              <li><a href="{% url 'djangovoice_list' list='closed' %}">{% trans "Closed" %}</a></li>
+              <li><a href="{% url 'djangovoice_list' list='mine' %}">{% trans "Mine" %}</a></li>
             {% endblock %}
           </ul>
         </div>
@@ -68,11 +70,7 @@
 
       <div class="navbar navbar-static-top">
         <div class="navbar-inner">
-          <div class="container-fluid">
-            <a class="brand" href="{% url brand_view %}">
-              {{ site.name }} {% trans "Feedback" %}
-            </a>
-          </div>
+          
           {% block navbottom %}
             {% include "djangovoice/includes/navbottom.html" %}
           {% endblock %}
@@ -81,7 +79,7 @@
     </header>
 
     <div class="container-fluid">
-      <div class="row-fluid">
+      <div class="row-fluid clearfix">
         <div class="span8">
           <div id="feedback">
             {% for message in messages %}
@@ -104,7 +102,7 @@
 
                   <span class="current">
                     {% blocktrans with number=page_obj.number pages=paginator.num_pages %}
-                      Page {{ number }} of {{ pages }}.
+                      Page {{ number }} of {{ pages }}
                     {% endblocktrans %}
                   </span>
 

@@ -32,9 +32,7 @@
     <span class="feedback-user">
       {% if feedback.user %}
         {% trans "Submitted by" %}
-        <a href="{{ feedback.user.get_absolute_url }}" title="{% trans "View profile" %}">
           {{ feedback.user|display_name }}
-        </a>
       {% else %}
         {% trans "Submitted anonymously" %}
       {% endif %}

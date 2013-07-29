@@ -1,7 +1,10 @@
-from django.conf.urls import include, patterns, url
-from django.contrib.auth.views import login
+try:
+	from django.conf.urls import include, patterns, url
+except ImportError:
+	from django.conf.urls.defaults import include, patterns, url
+
 from djangovoice.models import Feedback
-from djangovoice.views import (
+from djangovoice.views import (login,
     FeedbackListView, FeedbackWidgetView, FeedbackSubmitView,
     FeedbackDetailView, FeedbackEditView, FeedbackDeleteView)
 from djangovoice.feeds import LatestFeedback

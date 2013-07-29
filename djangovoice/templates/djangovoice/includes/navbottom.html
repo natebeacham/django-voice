@@ -3,9 +3,11 @@
 
 <ul class="navbottom">
   <li{% if active_tab == 'overview' %} class="active"{% endif %}>
-    <a href="{% url 'djangovoice_home' %}">{% trans "Overview" %}</a>
+    <a href="{% url 'djangovoice_home' %}">{% trans "Open Requests" %}</a>
   </li>
+  {% if user.is_authenticated %}
   <li{% if active_tab == 'new_feedback' %} class="active"{% endif %}>
-    <a href="{% url 'djangovoice_submit' %}">{% trans "New Feedback" %}</a>
+    <a href="{% url 'djangovoice_submit' %}">{% trans "New Request" %}</a>
   </li>
+  {% endif %}
 </ul>

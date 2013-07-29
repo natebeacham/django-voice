@@ -12,10 +12,6 @@
 {% endblock %}
 
 {% block content %}
-  <div class="content-spaces">
-    <h1 class="page-title">{{ title }}</h1>
-  </div>
-
   {% if object_list %}
     <ul class="feedback-list">
       {% for object in object_list %}
@@ -47,13 +43,9 @@
               <span class="feedback-user">
                 {% if object.user %}
                   {% trans "Submitted by:" %}
-                  <a href="{{ object.user.get_absolute_url }}" class="avatar" title="{% trans "View profile" %}">
                     {% get_user_image object.user 15 %}
-                  </a>
 
-                  <a href="{{ object.user.get_absolute_url }}" title="View profile">
                     {{ object.user|display_name }}
-                  </a>
                 {% else %}
                   {% trans "Submitted anonymously" %}
                 {% endif %}

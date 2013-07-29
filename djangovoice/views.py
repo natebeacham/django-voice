@@ -1,6 +1,9 @@
 import uuid
+from django import forms
 from django.core.exceptions import PermissionDenied
 from django.contrib import messages
+from django.contrib.auth import authenticate
+from django.contrib.auth.views import login as djlogin
 from django.db.models import Q
 from django.http import HttpResponseNotFound
 from django.shortcuts import redirect
@@ -15,6 +18,45 @@ from djangovoice.forms import WidgetForm, FeedbackForm
 from djangovoice.mixins import VoiceMixin
 from djangovoice.settings import ALLOW_ANONYMOUS_USER_SUBMIT
 
+class AuthenticationForm(forms.Form):
+    email = forms.EmailField()
+    password = forms.CharField(widget=forms.PasswordInput)
+
+    def __init__(self, request=None, *args, **kwargs):
+        self.request = request
+        self.user_cache = None
+        super(AuthenticationForm, self).__init__(*args, **kwargs)
+
+    def clean(self):
+        email = self.cleaned_data.get('email')
+        password = self.cleaned_data.get('password')
+
+        if email and password:
+            self.user_cache = authenticate(email=email, password=password)
+            if self.user_cache is None:
+                raise forms.ValidationError(_("Please enter a correct email and password. Note that both fields are case-sensitive."))
+            elif not self.user_cache.is_active:
+                raise forms.ValidationError(_("This account is inactive."))
+        self.check_for_test_cookie()
+        return self.cleaned_data
+
+    def check_for_test_cookie(self):
+        if self.request and not self.request.session.test_cookie_worked():
+            raise forms.ValidationError(
+                _("Your Web browser doesn't appear to have cookies enabled. "
+                  "Cookies are required for logging in."))
+
+    def get_user_id(self):
+        if self.user_cache:
+            return self.user_cache.id
+        return None
+
+    def get_user(self):
+        return self.user_cache
+
+def login(request, **kwargs):
+    kwargs['authentication_form'] = AuthenticationForm
+    return djlogin(request, **kwargs)
 
 class FeedbackDetailView(VoiceMixin, DetailView):
     template_name = 'djangovoice/detail.html'

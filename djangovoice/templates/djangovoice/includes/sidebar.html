@@ -21,19 +21,8 @@
   {% endfor %}
 </ul>
 
-<h4>{% trans "Type" %}</h4>
-<ul>
-  <li{% ifequal type "all" %} class="active"{% endifequal %}>
-    <a href="{% url 'djangovoice_list_type' list=list type='all' %}">
-      {% trans "All" %}
-    </a>
-  </li>
+<br>
 
-  {% for t in type_list %}
-    <li{% ifequal type t.slug %} class="active"{% endifequal %}>
-      <a href="{% url 'djangovoice_list_type' list=list type=t.slug %}">
-        {{ t.title }}
-      </a>
-    </li>
-  {% endfor %}
-</ul>
+<h4>{% trans "What's New" %}</h4>
+{% load feeds %}
+{% include_feed 'http://fluidreview.com/feed/' 5 djangovoice/feed.html %}
