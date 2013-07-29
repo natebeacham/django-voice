@@ -12,7 +12,7 @@ class WidgetForm(forms.ModelForm):
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
-        exclude = ('status', 'user', 'slug', 'duplicate')
+        exclude = ('status', 'user', 'slug', 'duplicate', 'anonymous', 'private')
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user', None)
@@ -23,11 +23,17 @@ class FeedbackForm(forms.ModelForm):
             field = self.fields[field_name]
             field.widget.attrs.update({'class': 'input-block-level'})
 
+        self.fields['title'].label = 'Could you briefly describe this request?'
+        self.fields['title'].widget.attrs.update({'placeholder': 'Example: I would like the ability to...'})
+
+        self.fields['description'].label = 'And could you provide a little more information?'
+        self.fields['description'].widget.attrs.update({'placeholder': 'Example: This ability to do this would be beneficial to me because...'})
+
+        self.fields['type'].label = 'What would you say is the nature of this request?'
+
         # change form fields for user authentication status:
         if self.user is not None and self.user.is_authenticated():
             deleted_fields = ['email']
-        else:
-            deleted_fields = ['anonymous', 'private']
 
         for field_name in deleted_fields:
             del self.fields[field_name]

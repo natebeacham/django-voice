@@ -33,25 +33,25 @@
             {% if user.is_authenticated %}
               <li>
                 <span>
-                  {% trans "hello" %}, <a href="#">{{ user.username }}</a>
+                  {% trans "Hello" %}, <a href="#">{{ user.first_name }}</a>
                 </span>
               </li>
               {% if user.is_authenticated %}
               <li>
                 <a href="{% url 'djangovoice_submit' %}">
-                  {% trans "submit feedback" %}
+                  {% trans "New Request" %}
                 </a>
               </li>
               {% endif %}
               <li>
                 <a href="{% url 'django.contrib.auth.views.logout' %}?next={% url 'djangovoice_home' %}">
-                  {% trans "sign out" %}
+                  {% trans "Sign Out" %}
                 </a>
               </li>
             {% else %}
               <li>
                 <a href="{% url 'djangovoice_signin' %}?next={% url 'djangovoice_home' %}">
-                  {% trans "sign in" %}
+                  {% trans "Sign In" %}
                 </a>
               </li>
             {% endif %}
@@ -59,10 +59,10 @@
 
           <ul class="nav">
             {% block navigation %}
-              <li><a href="{% url 'djangovoice_list' list='all' %}">{% trans "all" %}</a></li>
-              <li><a href="{% url 'djangovoice_list' list='open' %}">{% trans "open" %}</a></li>
-              <li><a href="{% url 'djangovoice_list' list='closed' %}">{% trans "closed" %}</a></li>
-              <li><a href="{% url 'djangovoice_list' list='mine' %}">{% trans "mine" %}</a></li>
+              <li><a href="{% url 'djangovoice_list' list='all' %}">{% trans "All" %}</a></li>
+              <li><a href="{% url 'djangovoice_list' list='open' %}">{% trans "Open" %}</a></li>
+              <li><a href="{% url 'djangovoice_list' list='closed' %}">{% trans "Closed" %}</a></li>
+              <li><a href="{% url 'djangovoice_list' list='mine' %}">{% trans "Mine" %}</a></li>
             {% endblock %}
           </ul>
         </div>

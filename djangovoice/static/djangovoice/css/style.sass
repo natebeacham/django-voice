@@ -4,7 +4,7 @@ html, body
 	font-family: segoe ui, freesans, sans-serif
 
 body
-	background-color: #eee
+	background-color: #f5f5f5
 	padding-top: 23px
 
 .clearfix:after 
@@ -62,7 +62,7 @@ header
 		list-style-type: none
 		margin: 0
 		padding: 0
-		left: 8%
+		left: 5%
 
 		li
 			display: inline
@@ -153,32 +153,31 @@ h3.feedback-title
 
 #sidebar
 	h4
-		font-weight: 700
+		font-weight: normal
+		text-transform: uppercase
+		color: #777
+
 	ul
 		list-style: none
 		margin-bottom: 20px
 		padding: 0
+
 		li
-			padding: 2px 15px
+			margin-bottom: 10px
+
 			&:hover
-				background-color: #fff
-				border-radius: 11px
-				-moz-border-radius: 11px
-				-webkit-border-radius: 11px
-			&.active
-				margin-bottom: 2px
-				background-color: #e7e9ea
-				color: #3f4547
-				border-radius: 11px
-				-moz-border-radius: 11px
-				-webkit-border-radius: 11px
 				a
-					color: #3f4547
-					text-shadow: 0 1px 0 #fff
+					text-decoration: underline
+
+			&.active
+				a
+					color: #000
+					font-weight: 700
+					
 			a
 				display: block
 				text-decoration: none
-				color: #798488
+				color: #444
 
 #submit form
 	margin-right: 20px
@@ -188,19 +187,18 @@ h3.feedback-title
 		padding: 10px
 
 		label
-			text-align: right
-			width: 140px
 			font-weight: bold
 			display: block
-			float: left
-			padding: 0 10px
 			line-height: 34px
 			font-size: 14px
 
+		&.error
+			background: #fee
+
 	input[type="text"], textarea
 		border: 1px solid #ccc
-		padding: 7px
-		width: 400px
+		padding: 12px
+		width: 96%
 
 		&:focus
 			outline: none
@@ -209,7 +207,7 @@ h3.feedback-title
 	select
 		border: 1px solid #ccc
 		padding: 7px
-		width: 416px
+		width: 99%
 
 	input[type="checkbox"]
 		margin: 10px
@@ -217,7 +215,6 @@ h3.feedback-title
 
 #feedback
 	background-color: #fff
-	box-shadow: 2px 2px 15px rgba(0,0,0,0.2)
 
 	.add-new
 		background-color: #0b486b
@@ -306,7 +303,6 @@ span
 	font-size: 11px
 	h4.feedback-title
 		margin-bottom: 0
-		border-bottom: 1px solid #d9d9d9
 	textarea
 		font-size: 1.1em
 		width: 100%

@@ -11,8 +11,6 @@
 
 {% block content %}
   <div id="submit" class="content-spaces">
-    <h1 class="page-title">{% trans "Submit your feedback" %}</h1>
-
     <form action="" method="post" class="form-horizontal">
       {% csrf_token %}
 
@@ -20,9 +18,11 @@
         {% include "djangovoice/includes/field.html" %}
       {% endfor %}
 
-      <div class="controls">
-        <button type="submit" class="btn" tabindex="100">{% trans "Submit" %}</button>
-      </div>
+      <div class="control-group">
+		  <div class="controls">
+		    <button type="submit" class="btn" tabindex="100">{% trans "Submit" %}</button>
+		  </div>
+		</div>
     </form>
   </div>
 {% endblock %}

@@ -4,7 +4,7 @@ html, body {
   font-family: segoe ui, freesans, sans-serif; }
 
 body {
-  background-color: #eeeeee;
+  background-color: whitesmoke;
   padding-top: 23px; }
 
 .clearfix:after {
@@ -56,7 +56,7 @@ header .navbottom {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  left: 8%; }
+  left: 5%; }
   header .navbottom li {
     display: inline; }
     header .navbottom li a {
@@ -138,32 +138,24 @@ h3.feedback-title {
   width: 15%; }
 
 #sidebar h4 {
-  font-weight: 700; }
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #777777; }
 #sidebar ul {
   list-style: none;
   margin-bottom: 20px;
   padding: 0; }
   #sidebar ul li {
-    padding: 2px 15px; }
-    #sidebar ul li:hover {
-      background-color: white;
-      border-radius: 11px;
-      -moz-border-radius: 11px;
-      -webkit-border-radius: 11px; }
-    #sidebar ul li.active {
-      margin-bottom: 2px;
-      background-color: #e7e9ea;
-      color: #3f4547;
-      border-radius: 11px;
-      -moz-border-radius: 11px;
-      -webkit-border-radius: 11px; }
-      #sidebar ul li.active a {
-        color: #3f4547;
-        text-shadow: 0 1px 0 white; }
+    margin-bottom: 10px; }
+    #sidebar ul li:hover a {
+      text-decoration: underline; }
+    #sidebar ul li.active a {
+      color: black;
+      font-weight: 700; }
     #sidebar ul li a {
       display: block;
       text-decoration: none;
-      color: #798488; }
+      color: #444444; }
 
 #submit form {
   margin-right: 20px;
@@ -171,31 +163,28 @@ h3.feedback-title {
   #submit form .control-group {
     padding: 10px; }
     #submit form .control-group label {
-      text-align: right;
-      width: 140px;
       font-weight: bold;
       display: block;
-      float: left;
-      padding: 0 10px;
       line-height: 34px;
       font-size: 14px; }
+    #submit form .control-group.error {
+      background: #ffeeee; }
   #submit form input[type="text"], #submit form textarea {
     border: 1px solid #cccccc;
-    padding: 7px;
-    width: 400px; }
+    padding: 12px;
+    width: 96%; }
     #submit form input[type="text"]:focus, #submit form textarea:focus {
       outline: none;
       border: 1px solid #888888; }
   #submit form select {
     border: 1px solid #cccccc;
     padding: 7px;
-    width: 416px; }
+    width: 99%; }
   #submit form input[type="checkbox"] {
     margin: 10px; }
 
 #feedback {
-  background-color: white;
-  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2); }
+  background-color: white; }
   #feedback .add-new {
     background-color: #0b486b;
     color: white;
@@ -268,8 +257,7 @@ span.feedback-type-question {
 .feedback-comments {
   font-size: 11px; }
   .feedback-comments h4.feedback-title {
-    margin-bottom: 0;
-    border-bottom: 1px solid #d9d9d9; }
+    margin-bottom: 0; }
   .feedback-comments textarea {
     font-size: 1.1em;
     width: 100%;
