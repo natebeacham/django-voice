@@ -169,37 +169,6 @@ class FeedbackListView(VoiceMixin, ListView):
 
         return super(FeedbackListView, self).get(request, *args, **kwargs)
 
-
-class FeedbackWidgetView(FormView):
-    template_name = 'djangovoice/widget.html'
-    form_class = WidgetForm
-    initial = {'type': Type.objects.get(pk=1)}
-
-    def get(self, request, *args, **kwargs):
-        return super(FeedbackWidgetView, self).get(request, *args, **kwargs)
-
-    @method_decorator(login_required)
-    def post(self, request, *args, **kwargs):
-        return super(FeedbackWidgetView, self).post(request, *args, **kwargs)
-
-    def form_valid(self, form):
-        feedback = form.save(commit=False)
-        if form.cleaned_data.get('anonymous') != 'on':
-            feedback.user = self.request.user
-        feedback.save()
-
-        messages.add_message(
-            self.request, messages.SUCCESS, _("Thanks for feedback."))
-
-        return redirect('djangovoice_widget')
-
-    def form_invalid(self, form):
-        messages.add_message(self.request, messages.ERROR,
-                             _("Form is invalid."))
-
-        return super(FeedbackWidgetView, self).form_invalid(form)
-
-
 class FeedbackSubmitView(VoiceMixin, FormView):
     template_name = 'djangovoice/form.html'
     form_class = FeedbackForm

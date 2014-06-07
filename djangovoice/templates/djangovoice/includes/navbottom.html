@@ -1,13 +1,10 @@
 {% load trans from i18n %}
 {% load url from future %}
 
-<ul class="navbottom">
-  <li{% if active_tab == 'overview' %} class="active"{% endif %}>
-    <a href="{% url 'djangovoice_home' %}">{% trans "Open Requests" %}</a>
-  </li>
+<dl class="sub-nav">
+  <dd {% if active_tab == 'overview' %} class="active"{% endif %}><a href="{% url 'djangovoice_home' %}">{% trans "Open Requests" %}</a></dd>
+
   {% if user.is_authenticated %}
-  <li{% if active_tab == 'new_feedback' %} class="active"{% endif %}>
-    <a href="{% url 'djangovoice_submit' %}">{% trans "New Request" %}</a>
-  </li>
+  	<dd {% if active_tab == 'new_feedback' %} class="active"{% endif %}> <a href="{% url 'djangovoice_submit' %}">{% trans "New Request" %}</a></dd>
   {% endif %}
-</ul>
+</dl>

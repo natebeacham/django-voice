@@ -5,7 +5,7 @@ except ImportError:
 
 from djangovoice.models import Feedback
 from djangovoice.views import (login,
-    FeedbackListView, FeedbackWidgetView, FeedbackSubmitView,
+    FeedbackListView, FeedbackSubmitView,
     FeedbackDetailView, FeedbackEditView, FeedbackDeleteView)
 from djangovoice.feeds import LatestFeedback
 from utils import get_voice_extra_context
@@ -35,10 +35,6 @@ urlpatterns = patterns(
         r'%s/(?P<type>[-\w]+)/(?P<status>[-\w]+)/$' % feedback_list_regex,
         view=FeedbackListView.as_view(),
         name='djangovoice_list_type_status'),
-
-    url(r'^widget/$',
-        view=FeedbackWidgetView.as_view(),
-        name='djangovoice_widget'),
 
     url(r'^submit/$',
         view=FeedbackSubmitView.as_view(),
