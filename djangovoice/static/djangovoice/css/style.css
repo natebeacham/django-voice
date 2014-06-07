@@ -1,7 +1,7 @@
 html, body {
   padding: 0;
   margin: 0;
-  font-family: segoe ui, freesans, sans-serif; }
+  font-family: open sans, segoe ui, freesans, sans-serif; }
 
 body {
   background-color: whitesmoke;
@@ -26,8 +26,8 @@ header .navtop {
   background-color: #222222;
   font-size: 0.8em; }
   header .navtop.navbar-static-top {
-    height: 23px;
-    line-height: 21px;
+    height: 40px;
+    line-height: 38px;
     position: fixed;
     top: 0;
     left: 0;
@@ -52,7 +52,7 @@ header .navtop {
         text-decoration: none; }
 header .navbottom {
   position: absolute;
-  top: 39px;
+  top: 59px;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -80,7 +80,7 @@ header .nav {
   header .nav.pull-right {
     float: right; }
 header .navbar {
-  margin-bottom: 20px; }
+  margin-bottom: 40px; }
   header .navbar .nav > li > a, header .navbar a.brand {
     padding-left: 0;
     color: black;
@@ -138,7 +138,7 @@ h3.feedback-title {
   width: 15%; }
 
 #sidebar h4 {
-  font-weight: normal;
+  font-weight: 400;
   text-transform: uppercase;
   color: #777777; }
 #sidebar ul {
@@ -163,7 +163,7 @@ h3.feedback-title {
   #submit form .control-group {
     padding: 10px; }
     #submit form .control-group label {
-      font-weight: bold;
+      font-weight: 700;
       display: block;
       line-height: 34px;
       font-size: 14px; }
@@ -200,7 +200,7 @@ h3.feedback-title {
       padding: 10px 30px; }
     #feedback ul.feedback-list li {
       border-top: 1px solid #dddddd;
-      min-height: 135px; }
+      min-height: 160px; }
       #feedback ul.feedback-list li.feedback-private {
         background-color: #ebfeef; }
       #feedback ul.feedback-list li.feedback-type-problem {
@@ -315,26 +315,27 @@ span.feedback-type-question {
   display: none; }
 
 #signin {
-  text-align: center;
-  padding: 50px 20px;
-  font-size: 22px; }
+  margin: 7% auto;
+  width: 490px;
+  background: white;
+  padding: 20px 8px;
+  border: 1px solid #dddddd;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1); }
+  #signin table {
+    width: 100%; }
+    #signin table th {
+      text-align: right; }
+    #signin table td, #signin table th {
+      padding: 10px; }
   #signin label {
     width: 200px;
-    font-weight: bold;
-    text-align: left;
-    margin: 0 10px;
-    display: inline-block;
-    font-size: 18px; }
+    font-weight: 700;
+    text-align: right;
+    margin: 0 10px; }
   #signin input[type="text"], #signin input[type="password"] {
     width: 300px;
     border: 1px solid #cccccc;
-    padding: 10px; }
-  #signin input[type="submit"] {
-    font-size: 20px;
-    padding: 17px 245px;
-    margin: 10px 0; }
-  #signin ul li {
-    padding: 10px; }
+    padding: 14px; }
 
 .form-errors {
   color: red;
@@ -396,7 +397,7 @@ div.content img {
   *display: inline;
   *zoom: 1;
   text-decoration: none;
-  font: bold 12px/12px HelveticaNeue, Arial;
+  font-weight: 700;
   background: whitesmoke;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#f0f0f0');
   background: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#f0f0f0));

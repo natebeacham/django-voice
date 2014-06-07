@@ -40,5 +40,8 @@ nosetests.xml
 #Translations
 *.mo
 
+node_modules
+.sass-cache
+
 #Mr Developer
 .mr.developer.cfg

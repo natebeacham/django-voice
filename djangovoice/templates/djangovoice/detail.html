@@ -74,9 +74,7 @@
                   {% if user == comment.user %}
                     {% trans "you" %}
                   {% else %}
-                    <a href="{{ comment.user.get_absolute_url }}">
                       {{ comment.user|display_name }}
-                    </a>
                   {% endif %}
                 </strong>
 

@@ -25,6 +25,7 @@
   </head>
 
   <body>
+
     <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
     <header>
       <div class="navtop navbar-static-top">
@@ -62,7 +63,9 @@
               <li><a href="{% url 'djangovoice_list' list='all' %}">{% trans "All" %}</a></li>
               <li><a href="{% url 'djangovoice_list' list='open' %}">{% trans "Open" %}</a></li>
               <li><a href="{% url 'djangovoice_list' list='closed' %}">{% trans "Closed" %}</a></li>
+              {% if user.is_authenticated %}
               <li><a href="{% url 'djangovoice_list' list='mine' %}">{% trans "Mine" %}</a></li>
+              {% endif %}
             {% endblock %}
           </ul>
         </div>
@@ -70,7 +73,7 @@
 
       <div class="navbar navbar-static-top">
         <div class="navbar-inner">
-          
+
           {% block navbottom %}
             {% include "djangovoice/includes/navbottom.html" %}
           {% endblock %}
@@ -78,6 +81,7 @@
       </div>
     </header>
 
+    {% block body %}
     <div class="container-fluid">
       <div class="row-fluid clearfix">
         <div class="span8">
@@ -96,7 +100,7 @@
                 <span class="step-links">
                   {% if page_obj.has_previous %}
                     <a href="?page={{ page_obj.previous_page_number }}">
-                      {% trans "previous" %}
+                      &laquo;
                     </a>
                   {% endif %}
 
@@ -108,7 +112,7 @@
 
                   {% if page_obj.has_next %}
                     <a href="?page={{ page_obj.next_page_number }}">
-                      {% trans "next" %}
+                      &raquo;
                     </a>
                   {% endif %}
                 </span>
@@ -124,19 +128,13 @@
         </div>
       </div>
     </div>
-
-    <footer>
-      <div class="container-fluid">
-        <p>
-          <a href="https://github.com/gkmngrgn/django-voice">{% trans "powered by django-voice" %}</a>
-        </p>
-      </div>
-    </footer>
+    {% endblock %}
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}djangovoice/js/libs/jquery-1.8.3.min.js"><\/script>')</script>
     <script src="{{ STATIC_URL }}djangovoice/js/libs/bootstrap.min.js"></script>
     {% voting_script %}
     {% block scripts %}{% endblock %}
+
   </body>
 </html>

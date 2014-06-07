@@ -19,8 +19,8 @@ from djangovoice.mixins import VoiceMixin
 from djangovoice.settings import ALLOW_ANONYMOUS_USER_SUBMIT
 
 class AuthenticationForm(forms.Form):
-    email = forms.EmailField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': _('you@example.com')}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': _('your password')}))
 
     def __init__(self, request=None, *args, **kwargs):
         self.request = request
