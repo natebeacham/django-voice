@@ -1,0 +1,36 @@
+.pull-right {
+  float: right; }
+
+.pull-left {
+  float: left; }
+
+.feedback-list {
+  list-style-type: none;
+  margin: 0; }
+  .feedback-list li .details {
+    margin-left: 100px; }
+
+#detail .details {
+  margin-left: 80px; }
+
+.button-group-vertical .button {
+  display: block;
+  margin-bottom: 1px; }
+
+.pagination {
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 4em; }
+
+.vote_buttons {
+  margin-right: 1em; }
+
+#id_honeypot {
+  display: none; }
+
+.voted {
+  opacity: 0.2; }
+
+.meta {
+  margin-bottom: 1em;
+  font-size: 90%; }

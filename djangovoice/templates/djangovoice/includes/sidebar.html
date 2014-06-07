@@ -2,10 +2,10 @@
 {% load url from future %}
 {% load get_type_list get_status_list from djangovoice_tags %}
 
-<h4>{% trans "Status" %}</h4>
+<h5>{% trans "Status" %}</h5>
 {% get_status_list list %}
 
-<ul>
+<ul class="side-nav">
   <li{% ifequal status "all" %} class="active"{% endifequal %}>
     <a href="{% url 'djangovoice_list_type_status' list=list type=type status='all' %}">
       {% trans "All" %}
@@ -23,6 +23,6 @@
 
 <br>
 
-<h4>{% trans "What's New" %}</h4>
+<h5>{% trans "What's New" %}</h5>
 {% load feeds %}
-{% include_feed 'http://fluidreview.com/feed/' 5 djangovoice/feed.html %}
+{% include_feed 'http://fluidreview.com/feed/' 3 djangovoice/feed.html %}

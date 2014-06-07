@@ -3,9 +3,9 @@
 
 {% if user.is_staff or user == feedback.user %}
   <div class="sidebar-box">
-    <h4>{% trans "Actions" %}</h4>
+    <h5>{% trans "Actions" %}</h5>
 
-    <ul>
+    <ul class="side-nav">
       <li><a href="{% url 'djangovoice_edit' feedback.id %}">{% trans "Edit" %}</a></li>
       <li><a href="{% url 'djangovoice_delete' feedback.id %}">{% trans "Delete" %}</a></li>
     </ul>

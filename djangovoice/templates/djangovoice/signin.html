@@ -8,55 +8,38 @@
 {% block title %}{% trans 'Sign in' %}{% endblock %}
 
 {% block body %}
-  <div id="signin" class="content-spaces">
-    <form action="" method="POST">
-      {% csrf_token %}
+  <br>
+  <div class="row">
+    <div class="small-12 large-7 columns">
+      <div id="signin">
+        <form action="" method="POST">
+          {% csrf_token %}
 
-      <table>
-        <tr>
-          <th>
+          <fieldset>
+            <legend>Sign in</legend>
+
             {{ form.email.label_tag }}
-          </th>
 
-          <td>
             {{ form.email }}
-          </td>
-        </tr>
 
-        {% if form.email.errors %}
-          <tr>
-            <td colspan="2">
+            {% if form.email.errors %}
               {{ form.email.errors }}
-            </td>
-          </tr>
-        {% endif %}
+            {% endif %}
 
-        <tr>
-          <th>
             {{ form.password.label_tag }}
-          </th>
 
-          <td>
             {{ form.password }}
-          </td>
-        </tr>
 
-        {% if form.password.errors %}
-          <tr>
-            <td colspan="2">
-              {{ form.password.errors }}
-            </td>
-          </tr>
-        {% endif %}
+            {% if form.password.errors %}
+                {{ form.password.errors }}
+            {% endif %}
 
-        <tr>
-          <td></td>
-          <td><input class="btn btn-primary" type="submit" value="{% trans "Sign in" %} &raquo;" /></td>
-        </tr>
-      </table>
+            <input class="button small" type="submit" value="{% trans "Sign in" %} &raquo;" />
+            <input type="hidden" name="next" value="{% url 'djangovoice_list' list='all' %}" />
 
-
-      <input type="hidden" name="next" value="{% url 'djangovoice_list' list='all' %}" />
-    </form>
+          </fieldset>
+        </form>
+      </div>
+    </div>
   </div>
 {% endblock %}

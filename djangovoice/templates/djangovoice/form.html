@@ -5,24 +5,16 @@
 
 {% block title %}{% trans "Feedback" %}{% endblock %}
 
-{% block navbottom %}
-  {% include "djangovoice/includes/navbottom.html" with active_tab='new_feedback' %}
-{% endblock %}
-
 {% block content %}
-  <div id="submit" class="content-spaces">
-    <form action="" method="post" class="form-horizontal">
+    <h3>{% trans 'New Request' %}</h3>
+
+    <form action="" method="post">
       {% csrf_token %}
 
       {% for field in form %}
         {% include "djangovoice/includes/field.html" %}
       {% endfor %}
 
-      <div class="control-group">
-		  <div class="controls">
-		    <button type="submit" class="btn" tabindex="100">{% trans "Submit" %}</button>
-		  </div>
-		</div>
+		  <button type="submit" class="btn" tabindex="100">{% trans "Submit" %}</button>
     </form>
-  </div>
 {% endblock %}
