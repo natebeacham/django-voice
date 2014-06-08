@@ -17,14 +17,14 @@
       {% for object in object_list %}
         {% get_comment_count for object as comment_count %}
         <li class="feedback-type-{{ object.type.slug }}{% if object.private %} feedback-private{% endif %}">
-          <span class="pull-right label secondary round  feedback-type feedback-type-{{ object.type.slug }}">
+          <span class="pull-right label secondary round  feedback-type feedback-type-{{ object.type.slug }} show-for-medium-up">
             {{ object.type.title }}
           </span>
-          <span class="pull-right label secondary round feedback-status feedback-status-{{ object.status.slug }}">
+          <span class="pull-right label secondary round feedback-status feedback-status-{{ object.status.slug }} show-for-medium-up">
             {{ object.status.title }}
           </span>
           {% if object.private %}
-            <span class="pull-right label secondary round  feedback-type">
+            <span class="pull-right label secondary round  feedback-type show-for-medium-up">
               {% trans "PRIVATE" %}
             </span>
           {% endif %}

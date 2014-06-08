@@ -7,8 +7,15 @@
 .feedback-list {
   list-style-type: none;
   margin: 0; }
-  .feedback-list li .details {
-    margin-left: 100px; }
+  .feedback-list li {
+    padding: 1em;
+    min-height: 9em; }
+    .feedback-list li .details {
+      margin-left: 100px; }
+    .feedback-list li.feedback-type-question {
+      background: #fff8e4; }
+    .feedback-list li.feedback-type-problem {
+      background: #fff5f5; }
 
 #detail .details {
   margin-left: 80px; }
@@ -28,9 +35,25 @@
 #id_honeypot {
   display: none; }
 
-.voted {
-  opacity: 0.2; }
+.vote-button {
+  opacity: 0.6; }
+  .vote-button.voted {
+    opacity: 1; }
 
 .meta {
   margin-bottom: 1em;
   font-size: 90%; }
+
+.label.feedback-status-done {
+  background: #ddffdd; }
+
+.label.feedback-status-under-review {
+  background: #ffdfc2; }
+
+.label.feedback-type-idea {
+  background: #008fff;
+  color: white; }
+
+.label.feedback-type-problem {
+  background: red;
+  color: white; }

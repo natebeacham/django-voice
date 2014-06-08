@@ -9,8 +9,17 @@
 	margin: 0
 
 	li
+		padding: 1em
+		min-height: 9em
+
 		.details
 			margin-left: 100px
+
+		&.feedback-type-question
+			background: #FFF8E4
+
+		&.feedback-type-problem
+			background: #FFF5F5
 
 #detail
 	.details
@@ -32,9 +41,26 @@
 #id_honeypot
 	display: none
 
-.voted
-	opacity: 0.2
+.vote-button
+	opacity: 0.6
+
+	&.voted
+		opacity: 1
 
 .meta
 	margin-bottom: 1em
 	font-size: 90%
+
+.label.feedback-status-done
+	background: rgb(221, 255, 221)
+
+.label.feedback-status-under-review
+	background: #FFDFC2
+
+.label.feedback-type-idea
+	background: #008FFF
+	color: #fff
+
+.label.feedback-type-problem
+	background: #f00
+	color: #fff

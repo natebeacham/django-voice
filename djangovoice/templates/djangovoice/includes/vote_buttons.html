@@ -4,17 +4,17 @@
   <div class="button-group button-group-vertical">
   	{% if user.is_authenticated %}
     <a href="#"
-       class="upVote button tiny {% if object|is_up_voted_by:user %} voted{% endif %}"
+       class="upVote vote-button button tiny success {% if object|is_up_voted_by:user %} voted{% endif %}"
        x:value="1">
       Yes!
     </a>
     {% endif %}
 
-    <span class="button disabled tiny score">{{ object.vote_score|default:'0' }}</span>
+    <span class="button secondary disabled tiny score">{{ object.vote_score|default:'0' }}</span>
 
     {% if user.is_authenticated %}
     <a href="#"
-       class="downVote button tiny{% if object|is_down_voted_by:user %} voted{% endif %}"
+       class="downVote vote-button button tiny alert {% if object|is_down_voted_by:user %} voted{% endif %}"
        x:value="-1">
       No!
     </a>

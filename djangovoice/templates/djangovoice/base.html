@@ -21,7 +21,14 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="{{ STATIC_URL }}djangovoice/js/vendor/modernizr.js"></script>
     <script src="{{ STATIC_URL }}djangovoice/js/foundation/foundation.js"></script>
+    <script src="{{ STATIC_URL }}djangovoice/js/foundation/foundation.dropdown.js"></script>
     <script src="{{ STATIC_URL }}djangovoice/js/foundation/foundation.topbar.js"></script>
+
+    <script>
+      $(function() {
+        $(document).foundation();
+      });
+    </script>
   </head>
 
   <body>
@@ -31,6 +38,8 @@
         <li class="name">
           <h1><a>Voice</a></h1>
         </li>
+
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
 
       <section class="top-bar-section">
@@ -64,12 +73,17 @@
 
         <ul class="left">
           {% block navigation %}
-            <li><a href="{% url 'djangovoice_list' list='all' %}">{% trans "All" %}</a></li>
-            <li><a href="{% url 'djangovoice_list' list='open' %}">{% trans "Open" %}</a></li>
-            <li><a href="{% url 'djangovoice_list' list='closed' %}">{% trans "Closed" %}</a></li>
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'djangovoice_list' list='mine' %}">{% trans "Mine" %}</a></li>
-            {% endif %}
+            <li class="has-dropdown">
+              <a href="#">{% trans 'Requests' %}</a>
+              <ul class="dropdown">
+                <li><a href="{% url 'djangovoice_list' list='all' %}">{% trans "All" %}</a></li>
+                <li><a href="{% url 'djangovoice_list' list='open' %}">{% trans "Open" %}</a></li>
+                <li><a href="{% url 'djangovoice_list' list='closed' %}">{% trans "Closed" %}</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'djangovoice_list' list='mine' %}">{% trans "Mine" %}</a></li>
+                {% endif %}
+              </ul>
+            </li>
           {% endblock %}
         </ul>
       </section>
@@ -77,7 +91,7 @@
 
     {% block body %}
     <div class="row">
-      <div class="small-10 large-10 columns">
+      <div class="small-12 medium-12 large-10 columns">
         <div id="feedback">
           {% for message in messages %}
             <div data-alert class="alert-box">
@@ -116,7 +130,7 @@
         </div>
       </div>
 
-      <div class="small-2 large-2 columns">
+      <div class="small-0 large-2 columns show-for-large-up">
         <div id="sidebar">
           <br>
           {% block sidebar %}{% endblock %}
