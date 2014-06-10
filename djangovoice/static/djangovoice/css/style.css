@@ -57,3 +57,12 @@
 .label.feedback-type-problem {
   background: red;
   color: white; }
+
+footer {
+  margin-bottom: 1em;
+  padding: 1em;
+  color: #777777;
+  line-height: 2em;
+  font-size: 110%;
+  font-style: italic;
+  text-align: center; }
