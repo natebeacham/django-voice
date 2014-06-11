@@ -73,3 +73,12 @@
   .top-bar form input.search:focus {
     background-color: whitesmoke;
     transition: background-color 0.2s ease-in; }
+
+footer {
+  margin-bottom: 1em;
+  padding: 1em;
+  color: #777777;
+  line-height: 2em;
+  font-size: 110%;
+  font-style: italic;
+  text-align: center; }
