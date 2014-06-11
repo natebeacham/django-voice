@@ -23,6 +23,30 @@
 
 <br>
 
+<h5>{% trans "Sort" %}</h5>
+
+<ul class="side-nav">
+  <li {% ifequal sort 'votes' %} class="active"{% endifequal %}>
+    <a href="{% url 'djangovoice_list_type_status' list=list type=type status=status sort="votes" %}">
+      {% trans 'By Votes' %}
+    </a>
+  </li>
+
+  <li {% ifequal sort 'dates' %} class="active"{% endifequal %}>
+    <a href="{% url 'djangovoice_list_type_status' list=list type=type status=status sort="date" %}">
+      {% trans 'By Date' %}
+    </a>
+  </li>
+
+  <li {% ifequal sort 'title' %} class="active"{% endifequal %}>
+    <a href="{% url 'djangovoice_list_type_status' list=list type=type status=status sort="title" %}">
+      {% trans 'By Title' %}
+    </a>
+  </li>
+</ul>
+
+<br>
+
 <h5>{% trans "What's New" %}</h5>
 {% load feeds %}
 {% include_feed 'http://fluidreview.com/feed/' 3 djangovoice/feed.html %}

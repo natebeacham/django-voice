@@ -92,6 +92,8 @@ class FeedbackListView(VoiceMixin, ListView):
         f_list = self.kwargs.get('list', 'open')
         f_type = self.kwargs.get('type', 'all')
         f_status = self.kwargs.get('status', 'all')
+        f_sort = self.kwargs.get('sort', 'votes')
+        f_search = self.request.GET.get('q')
         f_filters = {}
         # Tag to display also user's private discussions
         f_showpriv = False
@@ -125,7 +127,15 @@ class FeedbackListView(VoiceMixin, ListView):
         else:
             queryset = self.model.objects.filter(**f_filters)
 
-        queryset = queryset.order_by('-vote_score', '-created')
+        if f_search:
+            queryset = queryset.filter(title__icontains=f_search)
+
+        if f_sort == 'votes':
+            queryset = queryset.order_by('-vote_score', '-created')
+        elif f_sort == 'date':
+            queryset = queryset.order_by('-created')
+        elif f_sort == 'title':
+            queryset = queryset.order_by('title')
 
         return queryset
 
@@ -133,6 +143,7 @@ class FeedbackListView(VoiceMixin, ListView):
         f_list = self.kwargs.get('list', 'open')
         f_type = self.kwargs.get('type', 'all')
         f_status = self.kwargs.get('status', 'all')
+        f_sort = self.kwargs.get('sort', 'votes')
 
         title = _("Feedback")
 
@@ -150,6 +161,7 @@ class FeedbackListView(VoiceMixin, ListView):
         data.update({
             'list': f_list,
             'status': f_status,
+            'sort': f_sort,
             'type': f_type,
             'navigation_active': f_list,
             'title': title

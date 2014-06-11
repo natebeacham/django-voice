@@ -11,6 +11,14 @@
   {% include "djangovoice/includes/navbottom.html" with active_tab='overview' %}
 {% endblock %}
 
+{% block searchform %}
+  <li class="has-form">
+      <form action="." method="GET">
+        <input type="text" name="q" class="search" {% if request.GET.q %} value="{{ request.GET.q }}" {% endif %} placeholder="Search...">
+      </form>
+  </li>
+{% endblock %}
+
 {% block content %}
   {% if object_list %}
     <ul class="feedback-list">

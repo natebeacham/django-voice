@@ -57,3 +57,19 @@
 .label.feedback-type-problem {
   background: red;
   color: white; }
+
+.side-nav li {
+  margin: 0; }
+
+.top-bar form input.search {
+  background: #cccccc url(/media/djangovoice/img/glyphicons_halflings_002_search.png) no-repeat 5px 50%;
+  padding: 0.1rem;
+  padding-left: 22px;
+  font-size: 80%;
+  color: #333333;
+  height: 2rem;
+  border-radius: 30px;
+  transition: background-color 0.2s ease-in; }
+  .top-bar form input.search:focus {
+    background-color: whitesmoke;
+    transition: background-color 0.2s ease-in; }

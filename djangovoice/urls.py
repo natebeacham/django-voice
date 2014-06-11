@@ -36,6 +36,11 @@ urlpatterns = patterns(
         view=FeedbackListView.as_view(),
         name='djangovoice_list_type_status'),
 
+    url(
+        r'%s/(?P<type>[-\w]+)/(?P<status>[-\w]+)/(?P<sort>[-\w]+)/$' % feedback_list_regex,
+        view=FeedbackListView.as_view(),
+        name='djangovoice_list_type_status'),
+
     url(r'^submit/$',
         view=FeedbackSubmitView.as_view(),
         name='djangovoice_submit'),
