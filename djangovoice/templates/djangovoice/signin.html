@@ -15,6 +15,10 @@
         <form action="" method="POST">
           {% csrf_token %}
 
+          {% for key, error in form.errors.items %}
+            {{ error }}
+          {% endfor %}
+
           <fieldset>
             <legend>Sign in</legend>
 
@@ -22,17 +26,9 @@
 
             {{ form.email }}
 
-            {% if form.email.errors %}
-              {{ form.email.errors }}
-            {% endif %}
-
             {{ form.password.label_tag }}
 
             {{ form.password }}
-
-            {% if form.password.errors %}
-                {{ form.password.errors }}
-            {% endif %}
 
             <input class="button small" type="submit" value="{% trans "Sign in" %} &raquo;" />
             <input type="hidden" name="next" value="{% url 'djangovoice_list' list='all' %}" />

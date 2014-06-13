@@ -36,7 +36,11 @@
     <nav class="top-bar" data-topbar>
       <ul class="title-area">
         <li class="name">
-          <h1><a href="/voice/">Voice</a></h1>
+          {% if settings.VOICE_LOGO %}
+            <a class="logoed" href="/voice/"><img src="{{ settings.VOICE_LOGO }}"></a>
+          {% else %}
+            <h1><a href="/voice/">Voice</a></h1>
+          {% endif  %}
         </li>
 
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
