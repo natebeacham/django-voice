@@ -12,7 +12,7 @@ class FeedbackAdmin(admin.ModelAdmin):
         'user', 'email']
     list_filter = ['type', 'status', 'anonymous', 'private']
     list_editable = ['type', 'status', 'anonymous', 'private']
-
+    raw_id_fields = ['user', 'duplicate']
 
 admin.site.register(Feedback, FeedbackAdmin)
 admin.site.register([Status, Type], SlugFieldAdmin)
